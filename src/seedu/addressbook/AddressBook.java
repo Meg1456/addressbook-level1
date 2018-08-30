@@ -321,7 +321,9 @@ public class AddressBook {
         } catch (InvalidPathException ipe) {
             return false;
         }
-        return hasValidParentDirectory(filePathToValidate) && hasValidFileName(filePathToValidate);
+        boolean b = hasValidParentDirectory(filePathToValidate);
+        boolean b1 = hasValidFileName(filePathToValidate);
+        return b && b1;
     }
 
     /**
