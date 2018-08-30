@@ -206,12 +206,12 @@ public class AddressBook {
      * ====================================================================
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args, String userInput) {
         showWelcomeMessage();
         processProgramArgs(args);
         loadDataFromStorage();
         while (true) {
-            String userCommand = getUserInput();
+            String userCommand = userInput;
             echoUserCommand(userCommand);
             String feedback = executeCommand(userCommand);
             showResultToUser(feedback);
