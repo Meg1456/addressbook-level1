@@ -454,6 +454,11 @@ public class AddressBook {
      */
     private static String executeFindPersons(String commandArgs) {
         final Set<String> keywords = extractKeywordsFromFindPersonArgs(commandArgs);
+        for (String s : keywords) {
+            String temp_person = s.toLowerCase();
+            keywords.remove(s);
+            keywords.add(temp_person);
+        }
         final ArrayList<String[]> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
         showToUser(personsFound);
         return getMessageForPersonsDisplayedSummary(personsFound);
