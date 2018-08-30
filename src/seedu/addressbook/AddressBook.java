@@ -453,7 +453,7 @@ public class AddressBook {
      * @return feedback display message for the operation result
      */
     private static String executeFindPersons(String commandArgs) {
-        final Set<String> keywords = extractKeywordsFromFindPersonArgs(commandArgs);
+        Set<String> keywords = extractKeywordsFromFindPersonArgs(commandArgs);
         for (String s : keywords) {
             String temp_person = s.toLowerCase();
             keywords.remove(s);
@@ -847,7 +847,10 @@ public class AddressBook {
      * @param person whose name you want
      */
     private static String getNameFromPerson(String[] person) {
-        return person[PERSON_DATA_INDEX_NAME];
+        ArrayList<String> temporary_per = new ArrayList<>();
+        temporary_per.add(person[PERSON_DATA_INDEX_NAME]);
+        String name_obtained = temporary_per.get(0);
+        return name_obtained.toLowerCase();
     }
 
     /**
